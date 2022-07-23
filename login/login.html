@@ -11,10 +11,10 @@
 
     <h2>Login Form</h2>
     
-    <form method="POST">
+    <form onsubmit="login(event)">
         <div class="container">
             <label for="name"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="name" required>
+            <input type="text" placeholder="Enter Username" name="email" required>
 
             <label for="psw"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="psw" required>
@@ -31,6 +31,8 @@
     </form>
 
     <script src="login.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
     
 </body>
 </html>
