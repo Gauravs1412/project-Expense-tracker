@@ -13,7 +13,11 @@ router.post('/signup',userController.signup);
 
 router.post('/login',userController.login)
 
-router.post('/expense',authController.authenticate,expenseController.expense)
+router.post('/expense',authController.authenticate,expenseController.expense);
+
+router.get('/getexpenses',authController.authenticate,expenseController.getexpenses)
+
+router.delete('/deleteexpense/:expenseid',authController.authenticate,expenseController.deleteexpense)
 
 
 

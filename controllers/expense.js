@@ -24,3 +24,33 @@ exports.expense=async(req,res)=>{
         return res.json({msg:"kuch error hai expense.js me"})
     }
 }
+
+
+exports.getexpenses = async (req, res)=> {
+    try {
+        //magic function 
+        const expenses=await req.user.getExpenses()
+        //console.log(expenses)
+        return res.status(200).json({expenses, success: true})
+        
+    } catch (err) {
+        
+     return res.status(402).json({ error: err, success: false})
+    }
+    
+       
+    }
+
+    exports.deleteexpense = async (req, res) => {
+
+        try {
+            const expenseid = req.params.expenseid;
+            Expense.destroy({where: { id: expenseid }})
+            return res.status(204).json({ success: true, message: "Deleted Successfuly"})
+        } catch (err) {
+            
+            console.log(err);
+            return res.status(403).json({ success: true, message: "Failed"})
+        }
+     
+    }
