@@ -4,7 +4,7 @@ function login(event){
     const email = event.target.email.value;
     const password = event.target.psw.value;
 
-    myobj = {
+    const myobj = {
       email,
     password
     }
@@ -14,15 +14,26 @@ function login(event){
     axios.post('http://localhost:3000/user/login', myobj)
       .then(res => {
         console.log(res);
-        localStorage.setItem('token',res.data.token);
-        // localStorage.setItem('userDetails',json.stringify(res.data.user));
-        window.location.href = '../Expense/index.html'
-        //alert('succesfully signed up')
 
+        if(res.status === 200){
+
+          const {token} = res.data
+          localStorage.setItem("token",token);
+          // localStorage.setItem('userDetails',json.stringify(res.data.user));
+          window.location.href = '../Expense/index.html'
+          //alert('succesfully signed up')
+  
+
+        }else {
+           alert('please enter correct password')
+          
+        }
+       
       })
       .catch(err => {
         console.log(err);
-        //alert('user already exists,please login')
+
+        
       })
 
      

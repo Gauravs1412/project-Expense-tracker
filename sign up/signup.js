@@ -33,6 +33,7 @@ function signup(event){
       })
       .catch(err => {
         console.log(err);
+        alert('you are already registerd,please log in')
         
       })
 

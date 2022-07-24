@@ -8,8 +8,14 @@ const sequelize = require('./util/database');
 const bodyparser = require('body-parser');
 const cors = require('cors');
 
+const User = require('./models/users');
+const Expense = require('./models/expense');
+
 
 const userRoutes = require('./routes/user');
+
+User.hasMany(Expense);
+Expense.belongsTo(User);
 
 
 

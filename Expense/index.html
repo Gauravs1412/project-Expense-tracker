@@ -8,12 +8,12 @@
 </head>
 <body>
 
-    <form>
+    <form onsubmit="expense(event)">
         <label for="expenseamount">Choose expenseamount</label>
-        <input type="number" name="expenseamount" required>
+        <input type="number" name="amount" required>
 
         <label for="description">Choose description</label>
-        <input type="text" name="description" required>
+        <input type="text" name="des" required>
 
         <label for="category">Choose a category</label>
         <select id="category" name="category">
