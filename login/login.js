@@ -14,6 +14,9 @@ function login(event){
     axios.post('http://localhost:3000/user/login', myobj)
       .then(res => {
         console.log(res);
+        localStorage.setItem('token',res.data.token);
+        // localStorage.setItem('userDetails',json.stringify(res.data.user));
+        window.location.href = '../Expense/index.html'
         //alert('succesfully signed up')
 
       })

@@ -42,7 +42,7 @@ exports.login=async(req,res)=>{
     const { email, password } = req.body;
 //console.log("login",req.body)
     const result=await User.findOne({where:{email}})
-    console.log(result)
+    // console.log(result)
     const {name}=result
     const password2=result.password
       //console.log(result)
