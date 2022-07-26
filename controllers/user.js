@@ -14,7 +14,7 @@ exports.signup = async(req, res)=>{
   //console.log(result.length)
   if (result.length>0) {
     
-    return res.json({ msg: "User Already there!!" });
+    return res.json({ msg: "User is Already there!!" });
   }
         const hashedPassword = await bcrypt.hash(password, saltRounds);
   // Store hash in database here
