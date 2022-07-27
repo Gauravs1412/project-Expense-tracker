@@ -1,6 +1,15 @@
-async function forgotPassword(event)
+function forgotPassword(event)
 {
+    event.preventDefault()
     const email=event.target.email.value
-    const response=await axios.post("http://localhost:3000/user/forgot",email)
+
+    const obj = {email}
+     axios.post("http://localhost:3000/password/forgotpassword",obj)
+       .then(response => {
+        console.log(response);
+       })
+       .catch(err => {
+        console.log(err)
+       })
     
 }
